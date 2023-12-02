@@ -12,18 +12,22 @@
   ],
   "author": "mintablelabs",
   "dependencies": {
+    "@metamask/onboarding": "^1.0.1",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.26.1",
     "core-js": "^3.21.1",
+    "ethers": "5.7.2",
     "firebase": "^9.6.0",
     "react": "^17.0.2",
     "react-app-polyfill": "^3.0.0",
     "react-dom": "^17.0.2",
     "react-scripts": "^4.0.0",
+    "style-loader": "^3.3.3",
+    "typescript": "^5.3.2",
     "web-vitals": "^2.1.4",
-    "web3": "^1.7.0"
+    "web3": "^3.0.0-rc.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -48,5 +52,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
   }
 }

@@ -119,9 +119,8 @@ const getJWT = async (req, res) => {
       },
       {
         merge: true,
-      }
+      },
     );
-
     return res.send({ customToken, error: null });
   } catch (error) {
     console.log(error);
@@ -129,8 +128,29 @@ const getJWT = async (req, res) => {
   }
 };
 
+const getTransaction = async (req, res) => {
+  try {
+    const { user, amount, address } = req.query;
+    console.log(req.query);
+
+    // Delete messageToSign as it is for 1 time use only
+    await admin.firestore().collection("users").doc(address).set({
+      userName: user,
+      amount: amount,
+    });
+
+    // Send a successful response
+    res.status(200).send({ message: "Transaction successful" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ message: "Transaction failed" });
+  }
+};
+
 app.get("/jwt", getJWT);
 app.get("/message", getMessageToSign);
+app.get("/transaction", getTransaction);
+
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
