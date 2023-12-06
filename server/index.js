@@ -49,14 +49,14 @@ const getMessageToSign = async (req, res) => {
       messageToSign = user.data().messageToSign;
     } else {
       // messageToSign doesn't exist, save it to firestore database
-      admin.firestore().collection("users").doc(address).set(
-        {
-          messageToSign,
-        },
-        {
-          merge: true,
-        }
-      );
+      // admin.firestore().collection("users").doc(address).set(
+      //   {
+      //     messageToSign,
+      //   },
+      //   {
+      //     merge: true,
+      //   }
+      // );
     }
 
     return res.send({ messageToSign, error: null });
@@ -71,10 +71,10 @@ const isValidSignature = (address, signature, messageToSign) => {
     return false;
   }
 
-  const signingAddress = recoverPersonalSignature({
-    data: messageToSign,
-    sig: signature,
-  });
+  // const signingAddress = recoverPersonalSignature({
+  //   data: messageToSign,
+  //   sig: signature,
+  // });
 
   if (!signingAddress || typeof signingAddress !== "string") {
     return false;
@@ -113,14 +113,14 @@ const getJWT = async (req, res) => {
     }
 
     // Delete messageToSign as it is for 1 time use only
-    admin.firestore().collection("users").doc(address).set(
-      {
-        messageToSign: null,
-      },
-      {
-        merge: true,
-      },
-    );
+    // admin.firestore().collection("users").doc(address).set(
+    //   {
+    //     messageToSign: null,
+    //   },
+    //   {
+    //     merge: true,
+    //   },
+    // );
     return res.send({ customToken, error: null });
   } catch (error) {
     console.log(error);
