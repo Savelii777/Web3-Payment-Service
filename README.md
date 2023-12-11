@@ -1,7 +1,5 @@
 # Web3 Login with MetaMask, React and Node
 
-Tutorial: https://dapps-studio.medium.com/web3-login-with-metamask-react-and-node-a966ca4c7d89
-
 ## Requirements
 
 - Add your `serviceAccountKey.json` (i.e. your firebase admin private key) file inside the server folder. 
